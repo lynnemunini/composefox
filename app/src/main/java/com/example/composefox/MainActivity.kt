@@ -46,7 +46,7 @@ fun MyApp(){
     Surface(modifier = Modifier
         .fillMaxHeight()
         .fillMaxWidth(),
-        color = Color(0xFF395144)
+        color = Color(0xFF006E7F)
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
@@ -56,16 +56,16 @@ fun MyApp(){
             CreateCircle(moneyCount = moneyC.value){newValue ->
                 moneyC.value = newValue
             }
-            if (moneyC.value > 2) {
+            if (moneyC.value in 3..9) {
                 Spacer(modifier = Modifier.height(20.dp))
                 Text("You have lots of money. Use it wisely! 🤑", style = TextStyle(
                     color = (Color.White), fontWeight = FontWeight.ExtraBold,
                     fontSize = 18.sp)
                 )
             }
-            if (moneyC.value > 9) {
+            else if (moneyC.value > 9) {
                 Spacer(modifier = Modifier.height(20.dp))
-                Text("Thought you'd be tired by now! 😂", style = TextStyle(
+                Text("You should stop now! 😂", style = TextStyle(
                     color = (Color.White), fontWeight = FontWeight.ExtraBold,
                     fontSize = 18.sp)
                 )
