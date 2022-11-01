@@ -50,11 +50,18 @@ fun MyApp(){
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = moneyC.value.toString() , style = TextStyle(color = Color.White,
+            Text(text = "$${moneyC.value}", style = TextStyle(color = Color.White,
                 fontSize = 35.sp, fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.height(50.dp))
             CreateCircle(moneyCount = moneyC.value){newValue ->
                 moneyC.value = newValue
+            }
+            if (moneyC.value > 2) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Text("You have lots of money. Use it wisely ;)", style = TextStyle(
+                    color = (Color.White), fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp)
+                )
             }
         }
     }
