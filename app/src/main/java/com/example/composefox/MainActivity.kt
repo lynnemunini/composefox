@@ -44,6 +44,8 @@ fun MyApp(){
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = "$100")
+            Spacer(modifier = Modifier.height(10.dp))
             CreateCircle()
         }
     }
