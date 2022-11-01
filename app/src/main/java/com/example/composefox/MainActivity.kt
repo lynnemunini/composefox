@@ -12,7 +12,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,6 +40,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp(){
+    val moneyC = remember {
+        mutableStateOf(0)
+    }
     Surface(modifier = Modifier
         .fillMaxHeight()
         .fillMaxWidth(),
@@ -47,31 +50,37 @@ fun MyApp(){
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "$100", style = TextStyle(color = Color.White,
-            fontSize = 35.sp, fontWeight = FontWeight.Bold))
+            Text(text = moneyC.value.toString() , style = TextStyle(color = Color.White,
+                fontSize = 35.sp, fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.height(50.dp))
-            CreateCircle()
+            CreateCircle(moneyCount = moneyC.value){newValue ->
+                moneyC.value = newValue
+            }
         }
     }
 }
 
 @Composable
-fun CreateCircle() {
-    Card(
-        modifier = Modifier
-            .padding(3.dp)
-            .size(105.dp)
-            .clickable {
-                Log.d("Tap", "CreateCircle: Tap")
-            },
-        shape = CircleShape,
-        elevation = 4.dp
-    ) {
-        Box(contentAlignment = Alignment.Center) {
-            Text(text = "Tap", modifier = Modifier)
+fun CreateCircle(moneyCount : Int = 0, updateMoneyCounter: (Int) -> Unit) {
+//    var moneyCounter by remember {
+//        mutableStateOf(0)
+//    }
+        Card(
+            modifier = Modifier
+                .padding(3.dp)
+                .size(105.dp)
+                .clickable {
+                    Log.d("Tap", moneyCount.toString())
+                    updateMoneyCounter(moneyCount + 1)
+                },
+            shape = CircleShape,
+            elevation = 4.dp
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Text(text = "Tap", modifier = Modifier)
+            }
         }
     }
-}
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
