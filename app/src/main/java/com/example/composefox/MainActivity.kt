@@ -18,9 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composefox.ui.theme.ComposeFoxTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,8 +47,9 @@ fun MyApp(){
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "$100")
-            Spacer(modifier = Modifier.height(10.dp))
+            Text(text = "$100", style = TextStyle(color = Color.White,
+            fontSize = 35.sp, fontWeight = FontWeight.Bold))
+            Spacer(modifier = Modifier.height(50.dp))
             CreateCircle()
         }
     }
