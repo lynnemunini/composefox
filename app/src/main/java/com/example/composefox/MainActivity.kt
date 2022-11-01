@@ -46,7 +46,7 @@ fun MyApp(){
     Surface(modifier = Modifier
         .fillMaxHeight()
         .fillMaxWidth(),
-        color = Color(0xFFFFDDD2)
+        color = Color(0xFF395144)
     ) {
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
@@ -57,11 +57,25 @@ fun MyApp(){
                 moneyC.value = newValue
             }
             if (moneyC.value > 2) {
-                Spacer(modifier = Modifier.height(10.dp))
-                Text("You have lots of money. Use it wisely ;)", style = TextStyle(
+                Spacer(modifier = Modifier.height(20.dp))
+                Text("You have lots of money. Use it wisely! 🤑", style = TextStyle(
                     color = (Color.White), fontWeight = FontWeight.ExtraBold,
                     fontSize = 18.sp)
                 )
+            }
+            if (moneyC.value > 9) {
+                Spacer(modifier = Modifier.height(20.dp))
+                Text("Thought you'd be tired by now! 😂", style = TextStyle(
+                    color = (Color.White), fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp)
+                )
+            }
+            else{
+                Spacer(modifier = Modifier.height(20.dp))
+                Text("Keep Tapping! 😋", style = TextStyle(
+                    color = (Color.White), fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp))
+
             }
         }
     }
