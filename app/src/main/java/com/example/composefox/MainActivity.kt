@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeFoxTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(g
+                Surface(
                     modifier = Modifier
                         .fillMaxSize(),
                         //.padding(all = 59.dp),
